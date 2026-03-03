@@ -40,3 +40,24 @@ jobs:
       - uses: actions/checkout@v4
       - name: Deploy
         run: echo "Deploying to production"
+
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Only run on pull requests
+      - name: PR comment
+        if: github.event_name == 'pull_request'
+        run: echo "This is a PR"
+
+      # Skip on specific paths
+      - name: Build
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        run: npm run build
+
+      # Conditional matrix
+      - name: Build Windows
+        if: matrix.os == 'windows-latest'
+        run: echo "Building Windows"
