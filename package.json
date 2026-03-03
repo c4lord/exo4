@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --passWithNoTests",
-    "lint": "echo 'Linting...' && exit 0"
+    "lint": "echo 'Linting...' && exit 0",
+    "build" : "echo 'building' && exit 0"
   },
   "dependencies": {
     "express": "^4.18.2"
