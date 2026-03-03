@@ -44,7 +44,7 @@ jobs:
 
 
   build:
-    if: github.event.head_commit.message == 'echclub'
+    if: github.event.head_commit.message == 'gg'
     runs-on: ubuntu-latest
 
     steps:
